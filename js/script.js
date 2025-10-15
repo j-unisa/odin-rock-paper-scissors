@@ -25,4 +25,10 @@ function randomNumber()
     return Math.floor(Math.random() * 3);
 }
 
+function getHumanChoice()
+{
+    // Prompt user to pick rock, paper, or scissors
+    // Store in variable
+    // Return variable
+}
 // TODO: Call getComputerChoice
