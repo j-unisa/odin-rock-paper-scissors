@@ -26,7 +26,7 @@ function randomNumber()
     return Math.floor(Math.random() * 3);
 }
 
-console.log(getComputerChoice());
+// console.log(getComputerChoice());
 
 function getHumanChoice()
 {
@@ -38,21 +38,53 @@ function getHumanChoice()
     return choice;
 }
 
-console.log(getHumanChoice());
+// console.log(getHumanChoice());
 
 function playRound(humanChoice, computerChoice) 
 {
     // Convert humanChoice to lowercase
+    humanChoice = humanChoice.toLowerCase();
+
+    // Verify humanChoice and computerChoice
+    console.log(humanChoice);
+    console.log(computerChoice);
+
     // Compare choices and determine the winner of the round
     // Announce the round winner using console.log
     // Increment humanScore or computerScore depending on the winner
+    // TODO: Capitalize first choice in winner announcement
+    if (
+        (humanChoice === "rock" && computerChoice === "rock") || 
+        (humanChoice === "paper" && computerChoice === "paper") || 
+        (humanChoice === "scissors" && computerChoice === "scissors")
+    )
+    {
+        console.log(`No one wins!  ${humanChoice} vs ${computerChoice} ends in a tie.`);
+    }
+    else if (
+        (humanChoice === "rock" && computerChoice === "paper") || 
+        (humanChoice === "paper" && computerChoice === "scissors") || 
+        (humanChoice === "scissors" && computerChoice === "rock")
+    )
+    {
+        console.log(`You lose!  ${computerChoice} beats ${humanChoice}.`);
+        computerScore += 1;
+    }
+    else if (
+        (humanChoice === "rock" && computerChoice === "scissors") || 
+        (humanChoice === "paper" && computerChoice === "rock") || 
+        (humanChoice === "scissors" && computerChoice === "paper")
+    )
+    {
+        console.log(`You win!  ${humanChoice} beats ${computerChoice}.`);
+        humanScore += 1;
+    }    
 }
 
 let humanScore = 0;
 let computerScore = 0;
 
+playRound(getHumanChoice(), getComputerChoice());
+
 console.log(humanScore);
 console.log(computerScore);
-
-// TODO: Call getComputerChoice
-// TODO: Call getHumanChoice
