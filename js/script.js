@@ -40,6 +40,14 @@ function getHumanChoice()
 
 console.log(getHumanChoice());
 
+function playRound(humanChoice, computerChoice) 
+{
+    // Convert humanChoice to lowercase
+    // Compare choices and determine the winner of the round
+    // Announce the round winner using console.log
+    // Increment humanScore or computerScore depending on the winner
+}
+
 let humanScore = 0;
 let computerScore = 0;
 
