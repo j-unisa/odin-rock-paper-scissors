@@ -59,7 +59,7 @@ function playRound(humanChoice, computerChoice)
         (humanChoice === "scissors" && computerChoice === "scissors")
     )
     {
-        console.log(`No one wins!  ${humanChoice} vs ${computerChoice} ends in a tie.`);
+        console.log(`No one wins this round!  ${humanChoice} vs ${computerChoice} ends in a tie.`);
     }
     else if (
         (humanChoice === "rock" && computerChoice === "paper") || 
@@ -67,7 +67,7 @@ function playRound(humanChoice, computerChoice)
         (humanChoice === "scissors" && computerChoice === "rock")
     )
     {
-        console.log(`You lose!  ${computerChoice} beats ${humanChoice}.`);
+        console.log(`You lose this round!  ${computerChoice} beats ${humanChoice}.`);
         computerScore += 1;
     }
     else if (
@@ -76,9 +76,33 @@ function playRound(humanChoice, computerChoice)
         (humanChoice === "scissors" && computerChoice === "paper")
     )
     {
-        console.log(`You win!  ${humanChoice} beats ${computerChoice}.`);
+        console.log(`You win this round!  ${humanChoice} beats ${computerChoice}.`);
         humanScore += 1;
     }    
+}
+
+function playGame()
+{
+    // Create variable to keep track of number of rounds
+    // Move/call playRound here
+    // Move score variables here
+    // Call playRound 5 times
+    // Update score after each round
+    // Announce winner of entire game
+
+    // Recursive draft
+    /*
+    if (simplest case)
+	{
+		solution for simplest case
+	}
+
+	else
+	{
+		divide into simpler cases
+		function(simpler cases)
+	} 
+    */
 }
 
 let humanScore = 0;
