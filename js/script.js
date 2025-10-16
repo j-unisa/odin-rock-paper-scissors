@@ -1,12 +1,8 @@
-console.log("Hello World!");
-
+// Computer randomly makes selection
 function getComputerChoice() 
 {
-    // Get random number from randomNumber()
-    // Store in variable
     let num = randomNumber();
 
-    // If random number is 0, 1, 2 then return rock, paper, scissors respectively
     if (num === 0)
     {
         return "rock";
@@ -21,48 +17,43 @@ function getComputerChoice()
     }
 }
 
+// Helper for getComputerChoice()
 function randomNumber() 
 {
     return Math.floor(Math.random() * 3);
 }
 
-// console.log(getComputerChoice());
-
+// User makes selection
 function getHumanChoice()
 {
-    // Prompt user to pick rock, paper, or scissors
-    // Store in variable
     let choice = prompt("Choose one: rock, paper, scissors");
 
-    // Return variable
     return choice;
 }
 
-// console.log(getHumanChoice());
-
+// For each round
 function playRound(humanChoice, computerChoice, round) 
 {
-    // Convert humanChoice to lowercase
+    // For case-insensitive entries
     humanChoice = humanChoice.toLowerCase();
 
+    // Logs current round and selections
     console.log(`ROUND ${round}`);
-
-    // Verify humanChoice and computerChoice
     console.log(`Human: ${humanChoice}`);
     console.log(`Computer: ${computerChoice}`);
 
-    // Compare choices and determine the winner of the round
-    // Announce the round winner using console.log
-    // Increment humanScore or computerScore depending on the winner
-    // TODO: Capitalize first choice in winner announcement
+    // Tied round
     if (
         (humanChoice === "rock" && computerChoice === "rock") || 
         (humanChoice === "paper" && computerChoice === "paper") || 
         (humanChoice === "scissors" && computerChoice === "scissors")
     )
     {
+        // Logs current round results and scores
         console.log(`No one wins this round!  ${humanChoice} vs ${computerChoice} ends in a tie.`);
         console.log(`Your Score: ${humanScore} | Computer Score: ${computerScore}`);
+
+        // Alerts current round results and scores
         alert(`ROUND ${round}
 Human: ${humanChoice}
 Computer: ${computerChoice}
@@ -70,15 +61,22 @@ No one wins this round!  ${humanChoice} vs ${computerChoice} ends in a tie.
 Your Score: ${humanScore} | Computer Score: ${computerScore}`
         );
     }
+
+    // Computer wins round
     else if (
         (humanChoice === "rock" && computerChoice === "paper") || 
         (humanChoice === "paper" && computerChoice === "scissors") || 
         (humanChoice === "scissors" && computerChoice === "rock")
     )
     {
+        // Updates computer score
         computerScore += 1;
+
+        // Logs current round results and scores
         console.log(`You lose this round!  ${computerChoice} beats ${humanChoice}.`);
         console.log(`Your Score: ${humanScore} | Computer Score: ${computerScore}`);
+
+        // Alerts current round results and scores
         alert(`ROUND ${round}
 Human: ${humanChoice}
 Computer: ${computerChoice}
@@ -86,15 +84,22 @@ You lose this round!  ${computerChoice} beats ${humanChoice}.
 Your Score: ${humanScore} | Computer Score: ${computerScore}`
         );
     }
+
+    // Human wins round
     else if (
         (humanChoice === "rock" && computerChoice === "scissors") || 
         (humanChoice === "paper" && computerChoice === "rock") || 
         (humanChoice === "scissors" && computerChoice === "paper")
     )
     {
+        // Updates human score
         humanScore += 1;
+
+        // Logs current round results and scores
         console.log(`You win this round!  ${humanChoice} beats ${computerChoice}.`);
         console.log(`Your Score: ${humanScore} | Computer Score: ${computerScore}`);
+
+        // Alerts current round results and scores
         alert(`ROUND ${round}
 Human: ${humanChoice}
 Computer: ${computerChoice}
@@ -104,51 +109,54 @@ Your Score: ${humanScore} | Computer Score: ${computerScore}`
     }    
 }
 
+// For entire game
 function playGame(rounds)
 {
-    // Create variable to keep track of number of rounds
-    // Move/call playRound here
-    // Move score variables here
-    // Call playRound 5 times
-    // Update score after each round
-    // Announce winner of entire game
-
+    // Tracks current round
     let currentround = totalRounds - rounds + 1;
 
-    // Recursive draft
+    // After all rounds are completed
     if (rounds === 0)
 	{
-        // if humanScore equals computerScore
-        // then announce tie
+        // Tied Game
         if (humanScore === computerScore)
         {
+            // Logs game's final results and scores
             console.log(`FINAL SCORE
 Your Score: ${humanScore} | Computer Score: ${computerScore}`);
             console.log(`NO ONE WINS THE ENTIRE GAME!  IT'S A TIE.`);
+
+            // Alerts game's final results and scores
             alert(`FINAL SCORE
 Your Score: ${humanScore} | Computer Score: ${computerScore}
 NO ONE WINS THE ENTIRE GAME!  IT'S A TIE.`
             );
         }
-		// else if humanScore is greater than computerScore
-        // then announce human as winner
+
+		// Human wins game
         else if (humanScore > computerScore)
         {
+            // Logs game's final results and scores
             console.log(`FINAL SCORE
 Your Score: ${humanScore} | Computer Score: ${computerScore}`);
             console.log(`YOU WIN THE ENTIRE GAME!`);
+
+            // Alerts game's final results and scores
             alert(`FINAL SCORE
 Your Score: ${humanScore} | Computer Score: ${computerScore}
 YOU WIN THE ENTIRE GAME!`
             );
         }
-        // else computerScore is greater than humanScore
-        // so announce computer as winner
+
+        // Computer wins game
         else
         {
+            // Logs game's final results and scores
             console.log(`FINAL SCORE
 Your Score: ${humanScore} | Computer Score: ${computerScore}`);
             console.log(`YOU LOSE THE ENTIRE GAME!`);
+
+            // Alerts game's final results and scores
             alert(`FINAL SCORE
 Your Score: ${humanScore} | Computer Score: ${computerScore}
 YOU LOSE THE ENTIRE GAME!`
@@ -156,12 +164,13 @@ YOU LOSE THE ENTIRE GAME!`
         }
 	}
 
+    // For all rounds
 	else
 	{
-		// divide into simpler cases
+        // Play one round
         playRound(getHumanChoice(), getComputerChoice(), currentround);
 
-		// function(simpler cases)
+		// Next round
         playGame(rounds - 1);
 	}
 }
@@ -171,6 +180,3 @@ let computerScore = 0;
 let totalRounds = 5;
 
 playGame(totalRounds);
-
-console.log(humanScore);
-console.log(computerScore);
