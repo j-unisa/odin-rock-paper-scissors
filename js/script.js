@@ -45,6 +45,8 @@ function playRound(humanChoice, computerChoice, round)
     // Convert humanChoice to lowercase
     humanChoice = humanChoice.toLowerCase();
 
+    console.log(`ROUND ${round}`);
+
     // Verify humanChoice and computerChoice
     console.log(`Human: ${humanChoice}`);
     console.log(`Computer: ${computerChoice}`);
