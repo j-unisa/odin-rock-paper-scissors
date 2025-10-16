@@ -68,7 +68,7 @@ Human: ${humanChoice}
 Computer: ${computerChoice}
 No one wins this round!  ${humanChoice} vs ${computerChoice} ends in a tie.
 Your Score: ${humanScore} | Computer Score: ${computerScore}`
-        )
+        );
     }
     else if (
         (humanChoice === "rock" && computerChoice === "paper") || 
@@ -84,7 +84,7 @@ Human: ${humanChoice}
 Computer: ${computerChoice}
 You lose this round!  ${computerChoice} beats ${humanChoice}.
 Your Score: ${humanScore} | Computer Score: ${computerScore}`
-        )
+        );
     }
     else if (
         (humanChoice === "rock" && computerChoice === "scissors") || 
@@ -100,7 +100,7 @@ Human: ${humanChoice}
 Computer: ${computerChoice}
 You win this round!  ${humanChoice} beats ${computerChoice}.
 Your Score: ${humanScore} | Computer Score: ${computerScore}`
-        )
+        );
     }    
 }
 
@@ -125,6 +125,10 @@ function playGame(rounds)
             console.log(`FINAL SCORE
 Your Score: ${humanScore} | Computer Score: ${computerScore}`);
             console.log(`NO ONE WINS THE ENTIRE GAME!  IT'S A TIE.`);
+            alert(`FINAL SCORE
+Your Score: ${humanScore} | Computer Score: ${computerScore}
+NO ONE WINS THE ENTIRE GAME!  IT'S A TIE.`
+            );
         }
 		// else if humanScore is greater than computerScore
         // then announce human as winner
@@ -133,6 +137,10 @@ Your Score: ${humanScore} | Computer Score: ${computerScore}`);
             console.log(`FINAL SCORE
 Your Score: ${humanScore} | Computer Score: ${computerScore}`);
             console.log(`YOU WIN THE ENTIRE GAME!`);
+            alert(`FINAL SCORE
+Your Score: ${humanScore} | Computer Score: ${computerScore}
+YOU WIN THE ENTIRE GAME!`
+            );
         }
         // else computerScore is greater than humanScore
         // so announce computer as winner
@@ -141,6 +149,10 @@ Your Score: ${humanScore} | Computer Score: ${computerScore}`);
             console.log(`FINAL SCORE
 Your Score: ${humanScore} | Computer Score: ${computerScore}`);
             console.log(`YOU LOSE THE ENTIRE GAME!`);
+            alert(`FINAL SCORE
+Your Score: ${humanScore} | Computer Score: ${computerScore}
+YOU LOSE THE ENTIRE GAME!`
+            );
         }
 	}
 
