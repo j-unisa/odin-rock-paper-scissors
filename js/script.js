@@ -40,7 +40,7 @@ function getHumanChoice()
 
 // console.log(getHumanChoice());
 
-function playRound(humanChoice, computerChoice) 
+function playRound(humanChoice, computerChoice, round) 
 {
     // Convert humanChoice to lowercase
     humanChoice = humanChoice.toLowerCase();
@@ -61,7 +61,8 @@ function playRound(humanChoice, computerChoice)
     {
         console.log(`No one wins this round!  ${humanChoice} vs ${computerChoice} ends in a tie.`);
         console.log(`Your Score: ${humanScore} | Computer Score: ${computerScore}`);
-        alert(`Human: ${humanChoice}
+        alert(`ROUND ${round}
+Human: ${humanChoice}
 Computer: ${computerChoice}
 No one wins this round!  ${humanChoice} vs ${computerChoice} ends in a tie.
 Your Score: ${humanScore} | Computer Score: ${computerScore}`
@@ -76,7 +77,8 @@ Your Score: ${humanScore} | Computer Score: ${computerScore}`
         computerScore += 1;
         console.log(`You lose this round!  ${computerChoice} beats ${humanChoice}.`);
         console.log(`Your Score: ${humanScore} | Computer Score: ${computerScore}`);
-        alert(`Human: ${humanChoice}
+        alert(`ROUND ${round}
+Human: ${humanChoice}
 Computer: ${computerChoice}
 You lose this round!  ${computerChoice} beats ${humanChoice}.
 Your Score: ${humanScore} | Computer Score: ${computerScore}`
@@ -91,7 +93,8 @@ Your Score: ${humanScore} | Computer Score: ${computerScore}`
         humanScore += 1;
         console.log(`You win this round!  ${humanChoice} beats ${computerChoice}.`);
         console.log(`Your Score: ${humanScore} | Computer Score: ${computerScore}`);
-        alert(`Human: ${humanChoice}
+        alert(`ROUND ${round}
+Human: ${humanChoice}
 Computer: ${computerChoice}
 You win this round!  ${humanChoice} beats ${computerChoice}.
 Your Score: ${humanScore} | Computer Score: ${computerScore}`
@@ -107,6 +110,8 @@ function playGame(rounds)
     // Call playRound 5 times
     // Update score after each round
     // Announce winner of entire game
+
+    let currentround = totalRounds - rounds + 1;
 
     // Recursive draft
     if (rounds === 0)
@@ -140,7 +145,7 @@ Human Score: ${humanScore} | Computer Score: ${computerScore}`);
 	else
 	{
 		// divide into simpler cases
-        playRound(getHumanChoice(), getComputerChoice());
+        playRound(getHumanChoice(), getComputerChoice(), currentround);
 
 		// function(simpler cases)
         playGame(rounds - 1);
@@ -149,9 +154,9 @@ Human Score: ${humanScore} | Computer Score: ${computerScore}`);
 
 let humanScore = 0;
 let computerScore = 0;
-let rounds = 5;
+let totalRounds = 5;
 
-playGame(rounds);
+playGame(totalRounds);
 
 console.log(humanScore);
 console.log(computerScore);
