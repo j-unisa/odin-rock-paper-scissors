@@ -46,8 +46,8 @@ function playRound(humanChoice, computerChoice)
     humanChoice = humanChoice.toLowerCase();
 
     // Verify humanChoice and computerChoice
-    console.log(humanChoice);
-    console.log(computerChoice);
+    console.log(`Human: ${humanChoice}`);
+    console.log(`Computer: ${computerChoice}`);
 
     // Compare choices and determine the winner of the round
     // Announce the round winner using console.log
@@ -60,6 +60,12 @@ function playRound(humanChoice, computerChoice)
     )
     {
         console.log(`No one wins this round!  ${humanChoice} vs ${computerChoice} ends in a tie.`);
+        console.log(`Your Score: ${humanScore} | Computer Score: ${computerScore}`);
+        alert(`Human: ${humanChoice}
+Computer: ${computerChoice}
+No one wins this round!  ${humanChoice} vs ${computerChoice} ends in a tie.
+Your Score: ${humanScore} | Computer Score: ${computerScore}`
+        )
     }
     else if (
         (humanChoice === "rock" && computerChoice === "paper") || 
@@ -67,8 +73,14 @@ function playRound(humanChoice, computerChoice)
         (humanChoice === "scissors" && computerChoice === "rock")
     )
     {
-        console.log(`You lose this round!  ${computerChoice} beats ${humanChoice}.`);
         computerScore += 1;
+        console.log(`You lose this round!  ${computerChoice} beats ${humanChoice}.`);
+        console.log(`Your Score: ${humanScore} | Computer Score: ${computerScore}`);
+        alert(`Human: ${humanChoice}
+Computer: ${computerChoice}
+You lose this round!  ${computerChoice} beats ${humanChoice}.
+Your Score: ${humanScore} | Computer Score: ${computerScore}`
+        )
     }
     else if (
         (humanChoice === "rock" && computerChoice === "scissors") || 
@@ -76,12 +88,18 @@ function playRound(humanChoice, computerChoice)
         (humanChoice === "scissors" && computerChoice === "paper")
     )
     {
-        console.log(`You win this round!  ${humanChoice} beats ${computerChoice}.`);
         humanScore += 1;
+        console.log(`You win this round!  ${humanChoice} beats ${computerChoice}.`);
+        console.log(`Your Score: ${humanScore} | Computer Score: ${computerScore}`);
+        alert(`Human: ${humanChoice}
+Computer: ${computerChoice}
+You win this round!  ${humanChoice} beats ${computerChoice}.
+Your Score: ${humanScore} | Computer Score: ${computerScore}`
+        )
     }    
 }
 
-function playGame()
+function playGame(rounds)
 {
     // Create variable to keep track of number of rounds
     // Move/call playRound here
@@ -91,24 +109,49 @@ function playGame()
     // Announce winner of entire game
 
     // Recursive draft
-    /*
-    if (simplest case)
+    if (rounds === 0)
 	{
-		solution for simplest case
+        // if humanScore equals computerScore
+        // then announce tie
+        if (humanScore === computerScore)
+        {
+            console.log(`FINAL SCORE
+Human Score: ${humanScore} | Computer Score: ${computerScore}`);
+            console.log(`No one wins the entire game!  It's a tie.`);
+        }
+		// else if humanScore is greater than computerScore
+        // then announce human as winner
+        else if (humanScore > computerScore)
+        {
+            console.log(`FINAL SCORE
+Human Score: ${humanScore} | Computer Score: ${computerScore}`);
+            console.log(`You win the entire game!`);
+        }
+        // else computerScore is greater than humanScore
+        // so announce computer as winner
+        else
+        {
+            console.log(`FINAL SCORE
+Human Score: ${humanScore} | Computer Score: ${computerScore}`);
+            console.log(`You lose the entire game!`);
+        }
 	}
 
 	else
 	{
-		divide into simpler cases
-		function(simpler cases)
-	} 
-    */
+		// divide into simpler cases
+        playRound(getHumanChoice(), getComputerChoice());
+
+		// function(simpler cases)
+        playGame(rounds - 1);
+	}
 }
 
 let humanScore = 0;
 let computerScore = 0;
+let rounds = 5;
 
-playRound(getHumanChoice(), getComputerChoice());
+playGame(rounds);
 
 console.log(humanScore);
 console.log(computerScore);
