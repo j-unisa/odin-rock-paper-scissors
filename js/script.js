@@ -123,24 +123,24 @@ function playGame(rounds)
         if (humanScore === computerScore)
         {
             console.log(`FINAL SCORE
-Human Score: ${humanScore} | Computer Score: ${computerScore}`);
-            console.log(`No one wins the entire game!  It's a tie.`);
+Your Score: ${humanScore} | Computer Score: ${computerScore}`);
+            console.log(`NO ONE WINS THE ENTIRE GAME!  IT'S A TIE.`);
         }
 		// else if humanScore is greater than computerScore
         // then announce human as winner
         else if (humanScore > computerScore)
         {
             console.log(`FINAL SCORE
-Human Score: ${humanScore} | Computer Score: ${computerScore}`);
-            console.log(`You win the entire game!`);
+Your Score: ${humanScore} | Computer Score: ${computerScore}`);
+            console.log(`YOU WIN THE ENTIRE GAME!`);
         }
         // else computerScore is greater than humanScore
         // so announce computer as winner
         else
         {
             console.log(`FINAL SCORE
-Human Score: ${humanScore} | Computer Score: ${computerScore}`);
-            console.log(`You lose the entire game!`);
+Your Score: ${humanScore} | Computer Score: ${computerScore}`);
+            console.log(`YOU LOSE THE ENTIRE GAME!`);
         }
 	}
 
