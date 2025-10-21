@@ -44,9 +44,7 @@ function playRound(humanChoice, computerChoice, round)
 
     // Tied round
     if (
-        (humanChoice === "rock" && computerChoice === "rock") || 
-        (humanChoice === "paper" && computerChoice === "paper") || 
-        (humanChoice === "scissors" && computerChoice === "scissors")
+        (humanChoice === computerChoice)
     )
     {
         // Logs current round results and scores
@@ -86,11 +84,7 @@ Your Score: ${humanScore} | Computer Score: ${computerScore}`
     }
 
     // Human wins round
-    else if (
-        (humanChoice === "rock" && computerChoice === "scissors") || 
-        (humanChoice === "paper" && computerChoice === "rock") || 
-        (humanChoice === "scissors" && computerChoice === "paper")
-    )
+    else 
     {
         // Updates human score
         humanScore += 1;
