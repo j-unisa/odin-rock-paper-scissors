@@ -49,13 +49,6 @@ function playRound(humanChoice, computerChoice)
         const resultsNode = document.createElement("p");
         resultsNode.textContent = `No one wins this round!  ${humanChoice} vs ${computerChoice} ends in a tie.`;
         resultsDiv.appendChild(resultsNode);
-
-        // Alerts current round results and scores
-        alert(`Human: ${humanChoice}
-Computer: ${computerChoice}
-No one wins this round!  ${humanChoice} vs ${computerChoice} ends in a tie.
-Your Score: ${humanScore} | Computer Score: ${computerScore}`
-        );
     }
 
     // Computer wins round
@@ -72,13 +65,6 @@ Your Score: ${humanScore} | Computer Score: ${computerScore}`
         const resultsNode = document.createElement("p");
         resultsNode.textContent = `You lose this round!  ${computerChoice} beats ${humanChoice}.`;
         resultsDiv.appendChild(resultsNode);
-
-        // Alerts current round results and scores
-        alert(`Human: ${humanChoice}
-Computer: ${computerChoice}
-You lose this round!  ${computerChoice} beats ${humanChoice}.
-Your Score: ${humanScore} | Computer Score: ${computerScore}`
-        );
     }
 
     // Human wins round
@@ -91,13 +77,6 @@ Your Score: ${humanScore} | Computer Score: ${computerScore}`
         const resultsNode = document.createElement("p");
         resultsNode.textContent = `You win this round!  ${humanChoice} beats ${computerChoice}.`;
         resultsDiv.appendChild(resultsNode);
-
-        // Alerts current round results and scores
-        alert(`Human: ${humanChoice}
-Computer: ${computerChoice}
-You win this round!  ${humanChoice} beats ${computerChoice}.
-Your Score: ${humanScore} | Computer Score: ${computerScore}`
-        );
     }
 
     // Displays total score at the end of the round
