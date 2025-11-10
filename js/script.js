@@ -24,13 +24,12 @@ function randomNumber()
 }
 
 // For each round
-function playRound(humanChoice, computerChoice, round) 
+function playRound(humanChoice, computerChoice) 
 {
     // For case-insensitive entries
     humanChoice = humanChoice.toLowerCase();
 
-    // Logs current round and selections
-    console.log(`ROUND ${round}`);
+    // Logs current selections
     console.log(`Human: ${humanChoice}`);
     console.log(`Computer: ${computerChoice}`);
 
@@ -44,8 +43,7 @@ function playRound(humanChoice, computerChoice, round)
         console.log(`Your Score: ${humanScore} | Computer Score: ${computerScore}`);
 
         // Alerts current round results and scores
-        alert(`ROUND ${round}
-Human: ${humanChoice}
+        alert(`Human: ${humanChoice}
 Computer: ${computerChoice}
 No one wins this round!  ${humanChoice} vs ${computerChoice} ends in a tie.
 Your Score: ${humanScore} | Computer Score: ${computerScore}`
@@ -67,8 +65,7 @@ Your Score: ${humanScore} | Computer Score: ${computerScore}`
         console.log(`Your Score: ${humanScore} | Computer Score: ${computerScore}`);
 
         // Alerts current round results and scores
-        alert(`ROUND ${round}
-Human: ${humanChoice}
+        alert(`Human: ${humanChoice}
 Computer: ${computerChoice}
 You lose this round!  ${computerChoice} beats ${humanChoice}.
 Your Score: ${humanScore} | Computer Score: ${computerScore}`
@@ -86,8 +83,7 @@ Your Score: ${humanScore} | Computer Score: ${computerScore}`
         console.log(`Your Score: ${humanScore} | Computer Score: ${computerScore}`);
 
         // Alerts current round results and scores
-        alert(`ROUND ${round}
-Human: ${humanChoice}
+        alert(`Human: ${humanChoice}
 Computer: ${computerChoice}
 You win this round!  ${humanChoice} beats ${computerChoice}.
 Your Score: ${humanScore} | Computer Score: ${computerScore}`
@@ -102,10 +98,16 @@ const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
 
-rockButton.addEventListener("click", playRound => 
+rockButton.addEventListener("click", () => 
 {
-    // 
+    playRound(rockButton.id, getComputerChoice());
 }
 );
-paperButton.addEventListener("click", playRound);
-scissorsButton.addEventListener("click", playRound);
+paperButton.addEventListener("click", () => 
+{
+    playRound(paperButton.id, getComputerChoice());
+});
+scissorsButton.addEventListener("click", () => 
+{
+    playRound(scissorsButton.id, getComputerChoice());
+});
