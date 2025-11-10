@@ -97,6 +97,11 @@ function playRound(humanChoice, computerChoice)
     const scoreNode = document.createElement("p");
     scoreNode.textContent = `Your Score: ${humanScore} | Computer Score: ${computerScore}`;
     resultsDiv.appendChild(scoreNode);
+
+    window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: "smooth"
+    });
 }
 
 let humanScore = 0;
