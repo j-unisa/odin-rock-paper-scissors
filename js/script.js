@@ -23,14 +23,6 @@ function randomNumber()
     return Math.floor(Math.random() * 3);
 }
 
-// User makes selection
-function getHumanChoice()
-{
-    let choice = prompt("Choose one: rock, paper, scissors");
-
-    return choice;
-}
-
 // For each round
 function playRound(humanChoice, computerChoice, round) 
 {
@@ -110,9 +102,10 @@ const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
 
-rockButton.addEventListener("click", (e) => 
+rockButton.addEventListener("click", playRound => 
 {
-    console.log(e);
-});
+    // 
+}
+);
 paperButton.addEventListener("click", playRound);
 scissorsButton.addEventListener("click", playRound);
