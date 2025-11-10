@@ -79,7 +79,21 @@ function playRound(humanChoice, computerChoice)
         resultsDiv.appendChild(resultsNode);
     }
 
-    // Displays total score at the end of the round
+    // Displays game results
+    if (humanScore == 5)
+    {
+        const winnerNode = document.createElement("p");
+        winnerNode.textContent = `YOU WIN!`;
+        resultsDiv.appendChild(winnerNode);
+    }
+    else if (computerScore == 5)
+    {
+        const winnerNode = document.createElement("p");
+        winnerNode.textContent = `YOU LOSE!`;
+        resultsDiv.appendChild(winnerNode);
+    }
+
+    // Displays total score
     const scoreNode = document.createElement("p");
     scoreNode.textContent = `Your Score: ${humanScore} | Computer Score: ${computerScore}`;
     resultsDiv.appendChild(scoreNode);
