@@ -105,3 +105,14 @@ Your Score: ${humanScore} | Computer Score: ${computerScore}`
 
 let humanScore = 0;
 let computerScore = 0;
+
+const rockButton = document.querySelector("#rock");
+const paperButton = document.querySelector("#paper");
+const scissorsButton = document.querySelector("#scissors");
+
+rockButton.addEventListener("click", (e) => 
+{
+    console.log(e);
+});
+paperButton.addEventListener("click", playRound);
+scissorsButton.addEventListener("click", playRound);
